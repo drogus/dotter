@@ -23,6 +23,8 @@ Gem::Specification.new do |s|
      "README.rdoc",
      "Rakefile",
      "VERSION",
+     "dotter.gemspec",
+     "init.rb",
      "lib/dotter.rb",
      "lib/dotter/dot.rb",
      "spec/dotter/dot_spec.rb",
