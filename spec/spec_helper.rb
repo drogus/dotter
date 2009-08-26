@@ -7,3 +7,9 @@ require 'spec/autorun'
 Spec::Runner.configure do |config|
    config.mock_with :rr
 end
+
+def be_transparent
+  simple_matcher("be transparent") { |actual| 
+    actual.opacity == Magick::TransparentOpacity
+  }
+end
