@@ -3,4 +3,11 @@ class Dotter::Dot
   def initialize(x, y)
     @x, @y = x, y
   end
+
+  def -(other)
+    dot = self.dup
+    dot.x -= other.x
+    dot.y -= other.y
+    dot
+  end
 end
