@@ -2,14 +2,14 @@ require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
 
 describe "Dotter" do
   it "should allow to pass dots in initializer" do
-    dots = [Dot.new(1, 2), Dot.new(3, 4)]
+    dots = [Dotter::Dot.new(1, 2), Dotter::Dot.new(3, 4)]
     dotter = Dotter.new(:dots => dots)
     dotter.dots.length.should == 2
   end
 
   describe "generated image" do
     before(:each) do
-      @dotter = Dotter.new(:dots => [Dot.new(10, 10), Dot.new(20, 20)])
+      @dotter = Dotter.new(:dots => [Dotter::Dot.new(10, 10), Dotter::Dot.new(20, 20)])
       @image = @dotter.generate_image
     end
 
