@@ -1,6 +1,6 @@
 = dotter
 
-Description goes here.
+Simple library for drawing dots
 
 == Note on Patches/Pull Requests
  
@@ -15,4 +15,4 @@ Description goes here.
 
 == Copyright
 
-Copyright (c) 2009 Peter Sarnacki. See LICENSE for details.
+Copyright (c) 2009 Piotr Sarnacki. See LICENSE for details.

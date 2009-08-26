@@ -5,13 +5,12 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "dotter"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
+    gem.summary = %Q{Simple lib drawing dots on transparent image}
+    gem.description = %Q{Simple lib drawing dots on transparent image}
     gem.email = "drogus@gmail.com"
     gem.homepage = "http://github.com/drogus/dotter"
-    gem.authors = ["Peter Sarnacki"]
+    gem.authors = ["Piotr Sarnacki"]
     gem.add_development_dependency "rspec"
-    # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
 rescue LoadError
   puts "Jeweler (or a dependency) not available. Install it with: sudo gem install jeweler"
