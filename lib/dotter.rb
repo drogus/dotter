@@ -3,8 +3,8 @@ require "RMagick"
 class Dotter
   attr_accessor :dots
 
-  def initialize(opts)
-    @dots = opts.delete(:dots)
+  def initialize(opts = {})
+    @dots = opts.delete(:dots) || []
     @width = opts.delete(:width) || 100
     @height = opts.delete(:height) || 100
     @radius = opts.delete(:radius) || 5
@@ -21,6 +21,7 @@ class Dotter
   end
 
   def draw_dots(image)
+    return if dots.nil? || dots.length == 0
     gc = Magick::Draw.new
 
     dots.each do |dot|
