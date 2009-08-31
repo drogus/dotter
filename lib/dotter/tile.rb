@@ -4,7 +4,7 @@
 class Dotter::Tile
   attr_accessor :zoom, :start, :places
   def initialize(latlng, zoom)
-    @zoom = zoom
+    @zoom = zoom.to_i
     @start = Dotter::GMap.latlng_to_pixel(latlng, zoom)
   end
 
