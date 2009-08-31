@@ -1,20 +1,20 @@
 require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
 
-describe "Dotter" do
+describe "Dotter::Dotter" do
   it "should allow to pass dots in initializer" do
     dots = [Dotter::Dot.new(1, 2), Dotter::Dot.new(3, 4)]
-    dotter = Dotter.new(:dots => dots)
+    dotter = Dotter::Dotter.new(:dots => dots)
     dotter.dots.length.should == 2
   end
 
   it "should generate blank image without error if there is no dots" do
-    dotter = Dotter.new
+    dotter = Dotter::Dotter.new
     lambda { dotter.generate_image }.should_not raise_error
   end
 
   describe "generated image" do
     before(:each) do
-      @dotter = Dotter.new(:dots => [Dotter::Dot.new(10, 10), Dotter::Dot.new(20, 20)])
+      @dotter = Dotter::Dotter.new(:dots => [Dotter::Dot.new(10, 10), Dotter::Dot.new(20, 20)])
       @image = @dotter.generate_image
     end
 

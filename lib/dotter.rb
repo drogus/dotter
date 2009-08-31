@@ -1,12 +1,14 @@
 require "RMagick"
 
-class Dotter
+module Dotter
+end
+class Dotter::Dotter
   attr_accessor :dots
 
   def initialize(opts = {})
     @dots = opts.delete(:dots) || []
-    @width = opts.delete(:width) || 100
-    @height = opts.delete(:height) || 100
+    @width = opts.delete(:width) || 256
+    @height = opts.delete(:height) || 256
     @radius = opts.delete(:radius) || 5
   end
 
@@ -41,3 +43,8 @@ end
 
 directory = File.expand_path(File.dirname(__FILE__))
 require File.join(directory, 'dotter', 'dot')
+require File.join(directory, 'dotter', 'lat_lng')
+require File.join(directory, 'dotter', 'gmap')
+require File.join(directory, 'dotter', 'tile')
+require File.join(directory, 'dotter', 'point')
+
