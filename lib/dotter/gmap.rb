@@ -19,8 +19,8 @@ class Dotter::GMap
    e = 0.9999 if e > 0.9999
    e = -0.9999  if e < -0.9999
 
-   point.x = (bmO + latlng.lng * pixLngDeg).round
-   point.y = (bmO + 0.5 * Math.log((1 + e) / (1 - e)) * -1 * pixLngRad).round
+   point.x = (bmO + latlng.lng * pixLngDeg).floor
+   point.y = (bmO + 0.5 * Math.log((1 + e) / (1 - e)) * -1 * pixLngRad).floor
    point
   end
 end
