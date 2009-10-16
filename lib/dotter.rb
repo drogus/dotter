@@ -3,13 +3,18 @@ require "RMagick"
 module Dotter
 end
 class Dotter::Dotter
-  attr_accessor :dots
+  attr_accessor :dots, :colorize
 
   def initialize(opts = {})
     @dots = opts.delete(:dots) || []
     @width = opts.delete(:width) || 256
     @height = opts.delete(:height) || 256
     @radius = opts.delete(:radius) || 5
+    @colorize = !!opts.delete(:colorize)
+  end
+
+  def colorize?
+    @colorize
   end
 
   def generate_image
@@ -36,7 +41,12 @@ class Dotter::Dotter
   def draw_dot(gc, dot)
     gc.fill("white")
     gc.circle(dot.x, dot.y, dot.x - @radius, dot.y)
-    gc.fill("black")
+    color = if colorize? and dot.respond_to?(:color)
+              dot.color
+            else
+              "black"
+            end
+    gc.fill(color)
     gc.circle(dot.x, dot.y, dot.x - @radius + 1, dot.y)
   end
 end

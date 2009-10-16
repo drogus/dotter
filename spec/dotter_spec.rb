@@ -12,6 +12,24 @@ describe "Dotter::Dotter" do
     lambda { dotter.generate_image }.should_not raise_error
   end
 
+  describe "colorize" do
+    before(:each) do
+      @dotter = Dotter::Dotter.new(:colorize => true)
+    end
+
+    it "should allow to set if dots should be colorized" do
+      @dotter.colorize?.should be_true
+      @dotter.colorize = false
+      @dotter.colorize?.should be_false
+    end
+
+    it "should make colored dots" do
+      @dotter.dots = [Dotter::Dot.new(10, 10, :color => "#ff0000")]
+      image = @dotter.generate_image
+      image.pixel_color(10, 10).should have_color("#ff0000")
+    end
+  end
+
   describe "generated image" do
     before(:each) do
       @dotter = Dotter::Dotter.new(:dots => [Dotter::Dot.new(10, 10), Dotter::Dot.new(20, 20)])

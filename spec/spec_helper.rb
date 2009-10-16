@@ -13,3 +13,9 @@ def be_transparent
     actual.opacity == Magick::TransparentOpacity
   }
 end
+
+def have_color(color)
+  simple_matcher("have color #{color}") { |actual|
+    actual.fcmp(Magick::Pixel.from_color(color))
+  }
+end

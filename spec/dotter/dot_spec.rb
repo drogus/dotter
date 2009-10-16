@@ -15,4 +15,15 @@ describe "Dotter::Dot" do
     result.x.should == 5
     result.y.should == 3
   end
+
+  it "should allow to set color of a dot" do
+    dot = Dotter::Dot.new(1, 2)
+    dot.color = "#ff0000"
+    dot.color.should == "#ff0000"
+  end
+
+  it "should allow to pass a color in options" do
+    dot = Dotter::Dot.new(1, 2, :color => "#ff0000")
+    dot.color.should == "#ff0000"
+  end
 end
