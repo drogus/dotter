@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{dotter}
-  s.version = "0.1.0"
+  s.version = "0.1.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Piotr Sarnacki"]
-  s.date = %q{2009-08-26}
+  s.date = %q{2009-10-16}
   s.description = %q{Simple lib drawing dots on transparent image}
   s.email = %q{drogus@gmail.com}
   s.extra_rdoc_files = [
@@ -27,7 +27,15 @@ Gem::Specification.new do |s|
      "init.rb",
      "lib/dotter.rb",
      "lib/dotter/dot.rb",
+     "lib/dotter/gmap.rb",
+     "lib/dotter/lat_lng.rb",
+     "lib/dotter/point.rb",
+     "lib/dotter/tile.rb",
      "spec/dotter/dot_spec.rb",
+     "spec/dotter/gmap_spec.rb",
+     "spec/dotter/lat_lng_spec.rb",
+     "spec/dotter/point_spec.rb",
+     "spec/dotter/tile_spec.rb",
      "spec/dotter_spec.rb",
      "spec/spec_helper.rb"
   ]
@@ -38,7 +46,11 @@ Gem::Specification.new do |s|
   s.summary = %q{Simple lib drawing dots on transparent image}
   s.test_files = [
     "spec/spec_helper.rb",
+     "spec/dotter/gmap_spec.rb",
+     "spec/dotter/point_spec.rb",
+     "spec/dotter/tile_spec.rb",
      "spec/dotter/dot_spec.rb",
+     "spec/dotter/lat_lng_spec.rb",
      "spec/dotter_spec.rb"
   ]
 
