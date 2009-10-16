@@ -17,6 +17,11 @@ describe "Dotter::Dotter" do
       @dotter = Dotter::Dotter.new(:colorize => true)
     end
 
+    it "should enable colorizing by default" do
+      dotter = Dotter::Dotter.new
+      dotter.colorize?.should be_true
+    end
+
     it "should allow to set if dots should be colorized" do
       @dotter.colorize?.should be_true
       @dotter.colorize = false

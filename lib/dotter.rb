@@ -10,7 +10,8 @@ class Dotter::Dotter
     @width = opts.delete(:width) || 256
     @height = opts.delete(:height) || 256
     @radius = opts.delete(:radius) || 5
-    @colorize = !!opts.delete(:colorize)
+    colorize = opts.delete(:colorize)
+    @colorize = colorize.nil? ? true : colorize
   end
 
   def colorize?
@@ -41,7 +42,7 @@ class Dotter::Dotter
   def draw_dot(gc, dot)
     gc.fill("white")
     gc.circle(dot.x, dot.y, dot.x - @radius, dot.y)
-    color = if colorize? and dot.respond_to?(:color)
+    color = if colorize? and dot.respond_to?(:color) && !dot.color.nil?
               dot.color
             else
               "black"
