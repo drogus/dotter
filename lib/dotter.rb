@@ -42,8 +42,8 @@ class Dotter::Dotter
   def draw_dot(gc, dot)
     gc.fill("white")
     gc.circle(dot.x, dot.y, dot.x - @radius, dot.y)
-    color = if colorize? and dot.respond_to?(:color) && !dot.color.nil?
-              dot.color
+    color = if colorize? and dot.respond_to?(:dot_color) && !dot.dot_color.nil?
+              dot.dot_color
             else
               "black"
             end

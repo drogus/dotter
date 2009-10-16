@@ -2,7 +2,7 @@
 # more on tiles and how google maps works can be found here:
 # http://code.google.com/apis/maps/documentation/overlays.html#Google_Maps_Coordinates
 class Dotter::Tile
-  attr_accessor :zoom, :start, :places
+  attr_accessor :zoom, :start, :places, :dots
   def initialize(latlng, zoom)
     @zoom = zoom.to_i
     @start = Dotter::GMap.latlng_to_pixel(latlng, @zoom)
@@ -27,11 +27,9 @@ class Dotter::Tile
 
   # generate tile image with Dotter
   def image
-    dotter = Dotter::Dotter.new(:dots => places_as_points)
+    dotter = Dotter::Dotter.new(:dots => @dots || places_as_points)
     img = dotter.generate_image
     img.format = "png"
     img
   end
 end
-
-

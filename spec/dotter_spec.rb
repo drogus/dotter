@@ -29,7 +29,7 @@ describe "Dotter::Dotter" do
     end
 
     it "should make colored dots" do
-      @dotter.dots = [Dotter::Dot.new(10, 10, :color => "#ff0000")]
+      @dotter.dots = [Dotter::Dot.new(10, 10, :dot_color => "#ff0000")]
       image = @dotter.generate_image
       image.pixel_color(10, 10).should have_color("#ff0000")
     end
