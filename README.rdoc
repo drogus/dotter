@@ -1,6 +1,8 @@
-= dotter
+= Dotter
 
-Simple library for drawing dots
+Simple library for drawing dots (for google maps).
+
+TODO: description goes here!
 
 == Note on Patches/Pull Requests
  
