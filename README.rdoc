@@ -3,19 +3,19 @@
 Simple library for drawing dots (for google maps).
 
 == Usage
- First you must create a tile (which will represent google maps tile). Tile takes tile start (latlng coordinates of upper left corner) and zoom. More on google maps tiles: http://code.google.com/apis/maps/documentation/overlays.html#Google_Maps_Coordinates 
+First you must create a tile (which will represent google maps tile). Tile takes tile start (latlng coordinates of upper left corner) and zoom. More on google maps tiles: http://code.google.com/apis/maps/documentation/overlays.html#Google_Maps_Coordinates 
 
-     tile_start = Dotter::LatLng.new(tile_start_latitude, tile_start_longitude)
-     tile = Dotter::Tile.new(tile_start, zoom)
+    tile_start = Dotter::LatLng.new(tile_start_latitude, tile_start_longitude)
+    tile = Dotter::Tile.new(tile_start, zoom)
 
-     tile.places = places_array # places should respond_to latitude and longitude
+    tile.places = places_array # places should respond_to latitude and longitude
 
-     dotter = Dotter::Dotter.new(:dots => tile.convert_places)
-     dotter.generate_image # Magick::Image instance containing transparent image with dots
+    dotter = Dotter::Dotter.new(:dots => tile.convert_places)
+    dotter.generate_image # Magick::Image instance containing transparent image with dots
 
- This will generate image of a tile with dots representing given places.
+This will generate image of a tile with dots representing given places.
 
- Dots are black by default. If you want to color them, objects passed as a dots should respond_to :dot_color method. dot_color should return string representing color, for list of available color names visit: http://www.imagemagick.org/RMagick/doc/imusage.html#color_names
+Dots are black by default. If you want to color them, objects passed as a dots should respond_to :dot_color method. dot_color should return string representing color, for list of available color names visit: http://www.imagemagick.org/RMagick/doc/imusage.html#color_names
 
 
  TODO: write short note about implementing it in google maps
