@@ -14,7 +14,8 @@
 #     tile.image # generates RMagick::Magick image with "png" format set
 #
 # You can also use tile in Dotter::Dotter explicitly (tile.image is a simple helper, but if you want to set some specific options you will have to do that this way):
-#     dotter = Dotter::Dotter.new(:dots => tile.places_as_points)
+#     dots = tile.convert_places
+#     dotter = Dotter::Dotter.new(:dots => dots)
 #     dotter.generate_image
 #
 # It passes places changed into points relative to current tile's start.
@@ -30,7 +31,7 @@ class Dotter::Tile
   # 
   # ==== Returns
   # Array[~x, ~y]:: points array
-  def places_as_points
+  def places_as_points(options = {})
     points = []
     places.each do |place|
       latlng = Dotter::LatLng.new(place.latitude, place.longitude)
@@ -43,6 +44,17 @@ class Dotter::Tile
       end
     end
     points
+  end
+
+  # Method converts places to points if places responds to x= and y=
+  #
+  def convert_places
+    places_as_points do |point, place|
+      place.x = point.x
+      place.y = point.y
+    end
+    @dots = places
+    places
   end
 
   # Generate tile image with Dotter
