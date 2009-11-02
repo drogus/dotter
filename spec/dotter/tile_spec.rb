@@ -13,6 +13,7 @@ describe "Dotter::Tile" do
     # need to add more specs fot Tile
     tile = Dotter::Tile.new(Dotter::LatLng.new(0, 0), 0)
     tile.locations = [Dotter::LatLng.new(0, 0)]
+    tile.convert_places_to_points
     tile.image.class.should == Magick::Image
     lambda { tile.image.to_blob }.should_not raise_error
   end

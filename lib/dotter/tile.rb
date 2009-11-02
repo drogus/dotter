@@ -21,7 +21,7 @@
 # It passes locations changed into points relative to current tile's start.
 #
 class Dotter::Tile
-  attr_accessor :zoom, :start, :locations, :dots
+  attr_accessor :zoom, :start, :locations
   def initialize(latlng, zoom)
     @zoom = zoom.to_i
     @start = Dotter::GMap.latlng_to_pixel(latlng, @zoom)
@@ -46,6 +46,10 @@ class Dotter::Tile
     points
   end
 
+  def convert_places_to_points
+    self.locations = locations_as_points
+  end
+
   # Method sets x and y coordinates for each place
   #
   def generate_xy_coordinates!
@@ -53,12 +57,12 @@ class Dotter::Tile
       location.x = point.x
       location.y = point.y
     end
-    @dots = locations
+    locations
   end
 
   # Generate tile image with Dotter
   def image
-    dotter = Dotter::Dotter.new(:dots => @dots || locations_as_points)
+    dotter = Dotter::Dotter.new(:dots => locations)
     img = dotter.generate_image
     img.format = "png"
     img
